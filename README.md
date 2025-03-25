@@ -1,46 +1,23 @@
-# Getting Started with Create React App
+# Frontend Mentor - Intro Section with Dropdown Navigation
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Este projeto é uma implementação do desafio de Frontend Mentor chamado **Intro Section with Dropdown Navigation**. O objetivo deste projeto é colocar em prática conceitos de desenvolvimento front-end utilizando React, enquanto trabalha em uma interface interativa de navegação com dropdown.
 
-## Available Scripts
+## Descrição do Desafio
 
-In the project directory, you can run:
+O desafio consiste em criar uma seção de introdução com navegação em dropdown, com um design responsivo, que pode ser visualizado em diferentes tamanhos de tela. O layout precisa ser flexível e adaptável, utilizando as melhores práticas de acessibilidade e usabilidade.
 
-### `npm start`
+Você pode acessar o desafio no site do Frontend Mentor através do seguinte link:  
+[Frontend Mentor - Intro Section with Dropdown Navigation](https://www.frontendmentor.io/challenges/intro-section-with-dropdown-navigation-ryaPetHE5?tab=downloads)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Tecnologias Utilizadas
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- **React**: Para a construção da interface.
+- **Material-UI**: Para componentes de interface de usuário prontos e estilização responsiva.
 
-### `npm test`
+## Funcionalidades
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+- **Navegação Responsiva**: Um menu de navegação em dropdown que se adapta a diferentes tamanhos de tela.
+- **Design Limpo e Moderno**: A interface segue as diretrizes de design fornecidas no desafio.
+- **Interatividade**: O menu de navegação é interativo, permitindo que os usuários escolham facilmente as opções de navegação.
+- **Responsividade**: O layout é totalmente responsivo, adaptando-se a telas de diferentes tamanhos e dispositivos.
+- **Acessibilidade**: Considerações de acessibilidade foram feitas, como a navegação por teclado e contraste adequado.
