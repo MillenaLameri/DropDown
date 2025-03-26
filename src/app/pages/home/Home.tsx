@@ -64,7 +64,6 @@ export const Home = () => {
                   Learn More
                 </Typography>
               </Box>
-
               <Box mt={16} display="flex" flexDirection="row">
                 <Box mr={2}>
                   <img src={DataBiz} />

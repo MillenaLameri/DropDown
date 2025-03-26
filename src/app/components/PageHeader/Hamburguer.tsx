@@ -33,8 +33,12 @@ export const Hamburguer = ({ open, close }: Props) => {
           backgroundColor: Colors.white,
         }}
       >
-        <Box justifyContent="space-between" flexDirection="row" display="flex">
-          <img src={Logo} />
+        <Box
+          justifyContent="flex-end"
+          flexDirection="row"
+          display="flex"
+          ml={4}
+        >
           <CloseIcon onClick={close} />
         </Box>
 
@@ -42,30 +46,18 @@ export const Hamburguer = ({ open, close }: Props) => {
 
         <Box sx={{ mb: 2 }}>
           <ListItemButton>
-            <ListItemIcon>
-              <CarRental sx={{ color: Colors.black }} />
-            </ListItemIcon>
             <ListItemText primary="Features" />
           </ListItemButton>
 
           <ListItemButton>
-            <ListItemIcon>
-              <DescriptionIcon sx={{ color: Colors.black }} />
-            </ListItemIcon>
             <ListItemText primary="Company" />
           </ListItemButton>
 
           <ListItemButton>
-            <ListItemIcon>
-              <Help sx={{ color: Colors.black }} />
-            </ListItemIcon>
             <ListItemText primary="Careers" />
           </ListItemButton>
 
           <ListItemButton>
-            <ListItemIcon>
-              <Help sx={{ color: Colors.black }} />
-            </ListItemIcon>
             <ListItemText primary="About" />
           </ListItemButton>
         </Box>

@@ -1,10 +1,29 @@
-import { Box, Button, Container, Toolbar, Typography } from "@mui/material";
+import * as React from "react";
+import { Box, Container, Toolbar, Typography } from "@mui/material";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
 import { useState } from "react";
 import { Hamburguer } from "./Hamburguer";
 import { Colors } from "../../../util/colors";
 import Logo from "../../../assents/img/logo.svg";
+import TodoIcon from "../../../assents/img/icon-todo.svg";
+import Calendar from "../../../assents/img/icon-calendar.svg";
+import Reminders from "../../../assents/img/icon-reminders.svg";
+import Planing from "../../../assents/img/icon-planning.svg";
+import { DropdownMenu } from "./DropDownMenu";
+
+const featureMenuItems = [
+  { label: "To do List", icon: TodoIcon },
+  { label: "Calendar", icon: Calendar },
+  { label: "Reminders", icon: Reminders },
+  { label: "Planning", icon: Planing },
+];
+
+const companyMenuItems = [
+  { label: "History" },
+  { label: "Our Team" },
+  { label: "Blog" },
+];
 
 export const PageHeader = () => {
   const [open, setOpen] = useState(false);
@@ -22,52 +41,60 @@ export const PageHeader = () => {
         <img src={Logo} />
         <Box display={{ xs: "none", md: "flex" }}>
           <Box ml={2}>
-            <Button sx={{ my: 2 }}>
-              <Typography
-                ml={1}
-                color={Colors.black}
-                fontSize="0.8rem"
-                fontWeight="bold"
-              >
-                Features
-              </Typography>
-            </Button>
+            <DropdownMenu label="Feature" menuItems={featureMenuItems} />
+          </Box>
+          <Box ml={2}>
+            <DropdownMenu label="Company" menuItems={companyMenuItems} />
           </Box>
           <Box>
-            <Button sx={{ my: 2 }}>
+            <Box sx={{ my: 2 }}>
               <Typography
-                ml={1}
+                noWrap
+                component="a"
+                href="/login"
+                color={Colors.gray3}
                 fontWeight="bold"
-                color={Colors.black}
-                fontSize="0.8rem"
-              >
-                Company
-              </Typography>
-            </Button>
-          </Box>
-          <Box>
-            <Button sx={{ my: 2 }}>
-              <Typography
-                fontWeight="bold"
-                color={Colors.black}
-                fontSize="0.8rem"
+                fontSize="0.9rem"
                 ml={1}
+                sx={{
+                  my: 2,
+                  backgroundColor: "transparent",
+                  p: 1,
+                  textAlign: "center",
+                  textDecoration: "none",
+                  "&:hover": {
+                    borderColor: Colors.gray3,
+                  },
+                }}
               >
                 Careers
               </Typography>
-            </Button>
+            </Box>
           </Box>
           <Box>
-            <Button sx={{ my: 2 }}>
+            <Box sx={{ my: 2 }}>
               <Typography
+                noWrap
+                component="a"
+                href="/login"
+                color={Colors.gray3}
                 fontWeight="bold"
-                color={Colors.black}
-                fontSize="0.8rem"
+                fontSize="0.9rem"
                 ml={1}
+                sx={{
+                  my: 2,
+                  backgroundColor: "transparent",
+                  p: 1,
+                  textAlign: "center",
+                  textDecoration: "none",
+                  "&:hover": {
+                    borderColor: Colors.gray3,
+                  },
+                }}
               >
                 About
               </Typography>
-            </Button>
+            </Box>
           </Box>
         </Box>
 
