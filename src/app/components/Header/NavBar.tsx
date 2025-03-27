@@ -1,40 +1,32 @@
-import { Box, Container, Switch, Toolbar, Typography } from "@mui/material";
-import IconButton from "@mui/material/IconButton";
-import MenuIcon from "@mui/icons-material/Menu";
-import { useState, useContext } from "react";
-import { Colors } from "../../../util/colors";
-import Logo from "../../../assents/img/logo.svg";
-import LogoWhite from "../../../assents/img/logoWhite.svg";
-import TodoIcon from "../../../assents/img/icon-todo.svg";
-import Calendar from "../../../assents/img/icon-calendar.svg";
-import Reminders from "../../../assents/img/icon-reminders.svg";
-import Planing from "../../../assents/img/icon-planning.svg";
-import { DropdownMenu } from "./DropDownMenu";
+import { Box, Container, IconButton, Toolbar, Typography } from "@mui/material";
+import { useContext, useState } from "react";
 
 import { ThemeContext } from "../../contexts/theme.context";
-import { Hamburguer } from "./Hamburguer";
 
+import { DropdownMenu } from "./DropDownMenu";
+import { Hamburguer } from "./Hamburguer";
+import { LogoComponent } from "../LogoComponent";
+import { MenuLink } from "../MenuLink";
+import { ThemeToggle } from "../ThemeToggle";
+import { Colors } from "../../../util/colors";
+import MenuIcon from "@mui/icons-material/Menu";
+
+// Menu items
 const featureMenuItems = [
-  { label: "To do List", icon: TodoIcon },
-  { label: "Calendar", icon: Calendar },
-  { label: "Reminders", icon: Reminders },
-  { label: "Planning", icon: Planing },
+  { label: "To do List", icon: "", href: "/toDoList" },
+  { label: "Calendar", icon: "", href: "/calendar" },
+  { label: "Reminders", icon: "", href: "/reminders" },
+  { label: "Planning", icon: "", href: "/planning" },
 ];
 
 const companyMenuItems = [
-  { label: "History" },
-  { label: "Our Team" },
-  { label: "Blog" },
+  { label: "History", href: "/history" },
+  { label: "Our Team", href: "/our-team" },
+  { label: "Blog", href: "/blog" },
 ];
 
 export const NavBar = () => {
-  const { theme, setTheme } = useContext(ThemeContext);
-
-  const handleThemeChange = () => {
-    const isCurrentDark = theme === "dark";
-    setTheme(isCurrentDark ? "light" : "dark");
-  };
-
+  const { theme } = useContext(ThemeContext);
   const [open, setOpen] = useState(false);
 
   const closeHambuguer = () => {
@@ -47,7 +39,8 @@ export const NavBar = () => {
   return (
     <Container maxWidth="xl">
       <Toolbar disableGutters>
-        <img src={theme === "dark" ? LogoWhite : Logo} alt="Logo" />
+        <LogoComponent />
+
         <Box display={{ xs: "none", md: "flex" }}>
           <Box ml={2}>
             <DropdownMenu label="Feature" menuItems={featureMenuItems} />
@@ -55,73 +48,12 @@ export const NavBar = () => {
           <Box ml={2}>
             <DropdownMenu label="Company" menuItems={companyMenuItems} />
           </Box>
-          <Box>
-            <Box sx={{ my: 2 }}>
-              <Typography
-                noWrap
-                component="a"
-                href="/login"
-                color={theme === "dark" ? Colors.white : Colors.gray3}
-                fontWeight="bold"
-                fontSize="0.9rem"
-                ml={1}
-                sx={{
-                  my: 2,
-                  backgroundColor: "transparent",
-                  p: 1,
-                  textAlign: "center",
-                  textDecoration: "none",
-                  "&:hover": {
-                    borderColor: Colors.gray3,
-                  },
-                }}
-              >
-                Careers
-              </Typography>
-            </Box>
-          </Box>
-          <Box>
-            <Box sx={{ my: 2 }}>
-              <Typography
-                noWrap
-                component="a"
-                href="/login"
-                color={theme === "dark" ? Colors.white : Colors.gray3}
-                fontWeight="bold"
-                fontSize="0.9rem"
-                ml={1}
-                sx={{
-                  my: 2,
-                  backgroundColor: "transparent",
-                  p: 1,
-                  textAlign: "center",
-                  textDecoration: "none",
-                  "&:hover": {
-                    borderColor: Colors.gray3,
-                  },
-                }}
-              >
-                About
-              </Typography>
-            </Box>
-          </Box>
+
+          <MenuLink label="Careers" href="/careers" />
+          <MenuLink label="About" href="/about" />
         </Box>
 
         <Box alignItems="center" justifyContent="center" flexGrow="1"></Box>
-
-        <Switch
-          checked={theme === "dark"}
-          onChange={handleThemeChange}
-          color="default"
-          sx={{
-            "& .MuiSwitch-track": {
-              backgroundColor: theme === "dark" ? Colors.white : Colors.gray3, // Cor do fundo
-            },
-            "& .MuiSwitch-thumb": {
-              backgroundColor: theme === "dark" ? Colors.white : Colors.black2, // Cor da bolinha
-            },
-          }}
-        />
 
         <Box ml={2} display={{ xs: "none", md: "flex" }}>
           <Typography
@@ -170,6 +102,7 @@ export const NavBar = () => {
             Register
           </Typography>
         </Box>
+
         <Box>
           <IconButton
             edge="end"
@@ -189,6 +122,7 @@ export const NavBar = () => {
           </IconButton>
         </Box>
         <Hamburguer open={open} close={closeHambuguer} />
+        <ThemeToggle />
       </Toolbar>
     </Container>
   );

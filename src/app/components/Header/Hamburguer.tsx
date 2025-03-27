@@ -3,13 +3,10 @@ import Drawer from "@mui/material/Drawer";
 import CloseIcon from "@mui/icons-material/Close";
 import Divider from "@mui/material/Divider";
 import ListItemButton from "@mui/material/ListItemButton";
-import ListItemIcon from "@mui/material/ListItemIcon";
 import ListItemText from "@mui/material/ListItemText";
-import Help from "@mui/icons-material/Help";
-import CarRental from "@mui/icons-material/CarRental";
-import DescriptionIcon from "@mui/icons-material/CarRentalRounded";
 import { Colors } from "../../../util/colors";
-import Logo from "../../../assents/img/logo.svg";
+import { ThemeContext } from "../../contexts/theme.context";
+import { useContext } from "react";
 
 type Props = {
   open: boolean;
@@ -17,6 +14,7 @@ type Props = {
 };
 
 export const Hamburguer = ({ open, close }: Props) => {
+  const { theme } = useContext(ThemeContext);
   return (
     <Drawer
       anchor="right"
@@ -30,7 +28,7 @@ export const Hamburguer = ({ open, close }: Props) => {
         sx={{
           p: 2,
           height: 1,
-          backgroundColor: Colors.white,
+          backgroundColor: theme === "dark" ? Colors.black : Colors.white,
         }}
       >
         <Box
@@ -81,7 +79,7 @@ export const Hamburguer = ({ open, close }: Props) => {
               href="/login"
               sx={{
                 textDecoration: "none",
-                color: Colors.white,
+                color: theme === "dark" ? Colors.white : Colors.gray3,
               }}
             >
               Register

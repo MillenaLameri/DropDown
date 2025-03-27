@@ -22,10 +22,12 @@ import { BoxCentralizado } from "../BoxCentralizado";
 import ArrowDown from "../../../assents/img/icon-arrow-down.svg";
 import ArrowUp from "../../../assents/img/icon-arrow-up.svg";
 import { ThemeContext } from "../../contexts/theme.context";
+import { useNavigate } from "react-router-dom";
 
 interface MenuItemData {
   label: string;
   icon?: string;
+  href: string;
 }
 
 interface DropdownMenuProps {
@@ -36,7 +38,7 @@ interface DropdownMenuProps {
 export const DropdownMenu: FC<DropdownMenuProps> = ({ label, menuItems }) => {
   const [openDropDown, setOpenDropDown] = useState(false);
   const { theme, setTheme } = useContext(ThemeContext);
-
+  const navigate = useNavigate();
   const anchorRef = useRef<HTMLButtonElement>(null);
 
   const handleToggle = () => setOpenDropDown((prev) => !prev);
@@ -48,6 +50,13 @@ export const DropdownMenu: FC<DropdownMenuProps> = ({ label, menuItems }) => {
   const handleListKeyDown = ({ key, preventDefault }: KeyboardEvent) => {
     if (key === "Tab" || key === "Escape") {
       preventDefault();
+      setOpenDropDown(false);
+    }
+  };
+
+  const handleMenuItemClick = (href: string | undefined) => {
+    if (href) {
+      navigate(href);
       setOpenDropDown(false);
     }
   };
@@ -97,6 +106,9 @@ export const DropdownMenu: FC<DropdownMenuProps> = ({ label, menuItems }) => {
         placement="bottom-start"
         transition
         disablePortal
+        sx={{
+          zIndex: 9999,
+        }}
       >
         {({ TransitionProps, placement }) => (
           <Grow
@@ -121,16 +133,16 @@ export const DropdownMenu: FC<DropdownMenuProps> = ({ label, menuItems }) => {
                     aria-labelledby="composition-button"
                     onKeyDown={handleListKeyDown}
                   >
-                    {menuItems.map(({ label, icon }, index) => (
+                    {menuItems.map(({ label, icon, href }, index) => (
                       <Box
                         sx={{ cursor: "pointer" }}
                         my={1}
                         key={index}
-                        onClick={handleClose}
+                        onClick={() => handleMenuItemClick(href)}
                       >
                         <Box display={"flex"} flexDirection="row">
                           {icon && (
-                            <Box mr={1}>
+                            <Box mr={1} component="a" href={href}>
                               <img
                                 width="18"
                                 height="20"
@@ -144,7 +156,6 @@ export const DropdownMenu: FC<DropdownMenuProps> = ({ label, menuItems }) => {
                               theme === "dark" ? Colors.white : Colors.gray3
                             }
                           >
-                            {" "}
                             {label}
                           </Typography>
                         </Box>
