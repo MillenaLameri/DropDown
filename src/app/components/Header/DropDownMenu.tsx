@@ -1,4 +1,12 @@
-import * as React from "react";
+import {
+  useState,
+  useContext,
+  useRef,
+  FC,
+  SyntheticEvent,
+  KeyboardEvent,
+  useEffect,
+} from "react";
 import {
   Box,
   ClickAwayListener,
@@ -9,11 +17,11 @@ import {
   Typography,
 } from "@mui/material";
 import { Colors } from "../../../util/colors";
-import MenuItem from "@mui/material/MenuItem";
 import MenuList from "@mui/material/MenuList";
 import { BoxCentralizado } from "../BoxCentralizado";
 import ArrowDown from "../../../assents/img/icon-arrow-down.svg";
 import ArrowUp from "../../../assents/img/icon-arrow-up.svg";
+import { ThemeContext } from "../../contexts/theme.context";
 
 interface MenuItemData {
   label: string;
@@ -25,32 +33,31 @@ interface DropdownMenuProps {
   menuItems: MenuItemData[];
 }
 
-export const DropdownMenu: React.FC<DropdownMenuProps> = ({
-  label,
-  menuItems,
-}) => {
-  const [openDropDown, setOpenDropDown] = React.useState(false);
-  const anchorRef = React.useRef<HTMLButtonElement>(null);
+export const DropdownMenu: FC<DropdownMenuProps> = ({ label, menuItems }) => {
+  const [openDropDown, setOpenDropDown] = useState(false);
+  const { theme, setTheme } = useContext(ThemeContext);
+
+  const anchorRef = useRef<HTMLButtonElement>(null);
 
   const handleToggle = () => setOpenDropDown((prev) => !prev);
 
-  const handleClose = (event: React.SyntheticEvent | Event) =>
+  const handleClose = (event: SyntheticEvent | Event) =>
     !anchorRef.current?.contains(event.target as HTMLElement) &&
     setOpenDropDown(false);
 
-  const handleListKeyDown = ({ key, preventDefault }: React.KeyboardEvent) => {
+  const handleListKeyDown = ({ key, preventDefault }: KeyboardEvent) => {
     if (key === "Tab" || key === "Escape") {
       preventDefault();
       setOpenDropDown(false);
     }
   };
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (openDropDown) prevOpen.current = openDropDown;
     else anchorRef.current?.focus();
   }, [openDropDown]);
 
-  const prevOpen = React.useRef(openDropDown);
+  const prevOpen = useRef(openDropDown);
 
   return (
     <Stack direction="row">
@@ -69,9 +76,9 @@ export const DropdownMenu: React.FC<DropdownMenuProps> = ({
         <Typography
           noWrap
           component="a"
-          color={Colors.gray3}
           fontWeight="bold"
           fontSize="0.9rem"
+          color={theme === "dark" ? Colors.white : Colors.gray3}
           ml={1}
         >
           {label}
@@ -103,6 +110,7 @@ export const DropdownMenu: React.FC<DropdownMenuProps> = ({
               sx={{
                 borderRadius: 2,
                 width: 160,
+                background: theme === "dark" ? Colors.black2 : Colors.white2,
               }}
             >
               <BoxCentralizado>
@@ -131,7 +139,14 @@ export const DropdownMenu: React.FC<DropdownMenuProps> = ({
                               />
                             </Box>
                           )}
-                          <Typography color={Colors.gray3}> {label}</Typography>
+                          <Typography
+                            color={
+                              theme === "dark" ? Colors.white : Colors.gray3
+                            }
+                          >
+                            {" "}
+                            {label}
+                          </Typography>
                         </Box>
                       </Box>
                     ))}

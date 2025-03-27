@@ -3,11 +3,13 @@ import Typography from "@mui/material/Typography";
 import { Colors } from "../../../util/colors";
 import { BoxCentralizado } from "../../components/BoxCentralizado";
 import Hero from "../../../assents/img/hero.png";
-import { PageHeader } from "../../components/PageHeader/PageHeader";
 import AudioPhile from "../../../assents/img/client-audiophile.svg";
 import DataBiz from "../../../assents/img/client-databiz.svg";
 import Maker from "../../../assents/img/client-maker.svg";
 import Meet from "../../../assents/img/client-meet.svg";
+import { NavBar } from "../../components/Header/NavBar";
+import { useContext, useState } from "react";
+import { ThemeContext } from "../../contexts/theme.context";
 
 const styles = {
   image: {
@@ -17,9 +19,10 @@ const styles = {
   },
 };
 export const Home = () => {
+  const { theme, setTheme } = useContext(ThemeContext);
   return (
     <Box display="flex" flexDirection="column">
-      <PageHeader />
+      <NavBar />
       <Grid container height="100vh">
         <BoxCentralizado>
           <Box
@@ -33,14 +36,14 @@ export const Home = () => {
           ></Box>
           <Box maxWidth="sm">
             <Box>
-              <Typography variant="h1" fontWeight="bold" color={Colors.black}>
+              <Typography variant="h1" fontWeight="bold">
                 Make
               </Typography>
-              <Typography variant="h1" fontWeight="bold" color={Colors.black}>
+              <Typography variant="h1" fontWeight="bold">
                 remote work
               </Typography>
               <Box>
-                <Typography color={Colors.gray2} fontSize="18" mt={8}>
+                <Typography fontSize="18" mt={8}>
                   Get your team in sync, no matter your location. Streamline
                   processes, create team rituals, and watch productivity soar.
                 </Typography>
@@ -50,11 +53,12 @@ export const Home = () => {
                   noWrap
                   component="a"
                   href="/login"
-                  color={Colors.white}
+                  color={theme === "dark" ? Colors.black : Colors.white}
                   fontSize="18"
                   sx={{
                     my: 2,
-                    backgroundColor: Colors.black,
+                    backgroundColor:
+                      theme === "dark" ? Colors.white : Colors.black,
                     borderRadius: 3,
                     p: 2,
                     textAlign: "center",

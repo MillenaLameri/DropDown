@@ -1,16 +1,18 @@
-import * as React from "react";
-import { Box, Container, Toolbar, Typography } from "@mui/material";
+import { Box, Container, Switch, Toolbar, Typography } from "@mui/material";
 import IconButton from "@mui/material/IconButton";
 import MenuIcon from "@mui/icons-material/Menu";
-import { useState } from "react";
-import { Hamburguer } from "./Hamburguer";
+import { useState, useContext } from "react";
 import { Colors } from "../../../util/colors";
 import Logo from "../../../assents/img/logo.svg";
+import LogoWhite from "../../../assents/img/logoWhite.svg";
 import TodoIcon from "../../../assents/img/icon-todo.svg";
 import Calendar from "../../../assents/img/icon-calendar.svg";
 import Reminders from "../../../assents/img/icon-reminders.svg";
 import Planing from "../../../assents/img/icon-planning.svg";
 import { DropdownMenu } from "./DropDownMenu";
+
+import { ThemeContext } from "../../contexts/theme.context";
+import { Hamburguer } from "./Hamburguer";
 
 const featureMenuItems = [
   { label: "To do List", icon: TodoIcon },
@@ -25,7 +27,14 @@ const companyMenuItems = [
   { label: "Blog" },
 ];
 
-export const PageHeader = () => {
+export const NavBar = () => {
+  const { theme, setTheme } = useContext(ThemeContext);
+
+  const handleThemeChange = () => {
+    const isCurrentDark = theme === "dark";
+    setTheme(isCurrentDark ? "light" : "dark");
+  };
+
   const [open, setOpen] = useState(false);
 
   const closeHambuguer = () => {
@@ -38,7 +47,7 @@ export const PageHeader = () => {
   return (
     <Container maxWidth="xl">
       <Toolbar disableGutters>
-        <img src={Logo} />
+        <img src={theme === "dark" ? LogoWhite : Logo} alt="Logo" />
         <Box display={{ xs: "none", md: "flex" }}>
           <Box ml={2}>
             <DropdownMenu label="Feature" menuItems={featureMenuItems} />
@@ -52,7 +61,7 @@ export const PageHeader = () => {
                 noWrap
                 component="a"
                 href="/login"
-                color={Colors.gray3}
+                color={theme === "dark" ? Colors.white : Colors.gray3}
                 fontWeight="bold"
                 fontSize="0.9rem"
                 ml={1}
@@ -77,7 +86,7 @@ export const PageHeader = () => {
                 noWrap
                 component="a"
                 href="/login"
-                color={Colors.gray3}
+                color={theme === "dark" ? Colors.white : Colors.gray3}
                 fontWeight="bold"
                 fontSize="0.9rem"
                 ml={1}
@@ -100,13 +109,27 @@ export const PageHeader = () => {
 
         <Box alignItems="center" justifyContent="center" flexGrow="1"></Box>
 
+        <Switch
+          checked={theme === "dark"}
+          onChange={handleThemeChange}
+          color="default"
+          sx={{
+            "& .MuiSwitch-track": {
+              backgroundColor: theme === "dark" ? Colors.white : Colors.gray3, // Cor do fundo
+            },
+            "& .MuiSwitch-thumb": {
+              backgroundColor: theme === "dark" ? Colors.white : Colors.black2, // Cor da bolinha
+            },
+          }}
+        />
+
         <Box ml={2} display={{ xs: "none", md: "flex" }}>
           <Typography
             noWrap
             component="a"
             href="/login"
             fontWeight="bold"
-            color={Colors.gray3}
+            color={theme === "dark" ? Colors.white : Colors.gray3}
             fontSize="0.8rem"
             mr={3}
             sx={{
@@ -127,7 +150,7 @@ export const PageHeader = () => {
             component="a"
             href="/login"
             fontWeight="bold"
-            color={Colors.gray3}
+            color={theme === "dark" ? Colors.white : Colors.gray3}
             fontSize="0.8rem"
             sx={{
               my: 2,
