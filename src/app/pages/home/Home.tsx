@@ -11,16 +11,39 @@ export const Home = () => {
 
   return (
     <Box display="flex" flexDirection="column">
+      <Grid
+        item
+        mt={5}
+        xs={12}
+        sm={6}
+        md={5}
+        sx={{
+          backgroundImage: `url(${require("../../../assents/img/hero-mobile.png")})`,
+          backgroundSize: "contain",
+          backgroundRepeat: "no-repeat",
+          height: "40vh",
+          display: { xs: "block", sm: "block", md: "none", xl: "none" },
+        }}
+      ></Grid>
       <Grid container height="100vh">
-        <BoxCentralizado>
-          <Box maxWidth="sm">
-            <HeroSection theme={theme} />
-            <LearnMoreButton theme={theme} />
-            <ClientLogos />
-          </Box>
-        </BoxCentralizado>
+        <Grid
+          item
+          xs={12}
+          sm={12}
+          md={7}
+          display="flex"
+          justifyContent="center"
+          alignItems="center"
+        >
+          <BoxCentralizado>
+            <Box maxWidth="sm">
+              <HeroSection theme={theme} />
+              <LearnMoreButton theme={theme} />
+              <ClientLogos />
+            </Box>
+          </BoxCentralizado>
+        </Grid>
 
-        {/* Hero image for desktop view */}
         <Grid
           item
           mt={5}

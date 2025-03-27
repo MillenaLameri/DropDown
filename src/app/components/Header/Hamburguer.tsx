@@ -44,19 +44,43 @@ export const Hamburguer = ({ open, close }: Props) => {
 
         <Box sx={{ mb: 2 }}>
           <ListItemButton>
-            <ListItemText primary="Features" />
+            <ListItemText
+              primary="Features"
+              sx={{
+                textDecoration: "none",
+                color: theme === "dark" ? Colors.white : Colors.gray3,
+              }}
+            />
           </ListItemButton>
 
           <ListItemButton>
-            <ListItemText primary="Company" />
+            <ListItemText
+              primary="Company"
+              sx={{
+                textDecoration: "none",
+                color: theme === "dark" ? Colors.white : Colors.gray3,
+              }}
+            />
           </ListItemButton>
 
           <ListItemButton>
-            <ListItemText primary="Careers" />
+            <ListItemText
+              primary="Careers"
+              sx={{
+                textDecoration: "none",
+                color: theme === "dark" ? Colors.white : Colors.gray3,
+              }}
+            />
           </ListItemButton>
 
           <ListItemButton>
-            <ListItemText primary="About" />
+            <ListItemText
+              primary="About"
+              sx={{
+                textDecoration: "none",
+                color: theme === "dark" ? Colors.white : Colors.gray3,
+              }}
+            />
           </ListItemButton>
         </Box>
         <Box
