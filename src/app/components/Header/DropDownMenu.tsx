@@ -103,7 +103,7 @@ export const DropdownMenu: FC<DropdownMenuProps> = ({ label, menuItems }) => {
         open={openDropDown}
         anchorEl={anchorRef.current}
         role={undefined}
-        placement="bottom-start"
+        placement={label === "Feature" ? "bottom-end" : "bottom-start"}
         transition
         disablePortal
         sx={{
@@ -132,6 +132,14 @@ export const DropdownMenu: FC<DropdownMenuProps> = ({ label, menuItems }) => {
                     id="composition-menu"
                     aria-labelledby="composition-button"
                     onKeyDown={handleListKeyDown}
+                    sx={{
+                      // Alinha o conteúdo ao topo, somente para o menu "Feature"
+                      ...(label === "Feature" && {
+                        display: "flex",
+                        flexDirection: "column",
+                        alignItems: "flex-start",
+                      }),
+                    }}
                   >
                     {menuItems.map(({ label, icon, href }, index) => (
                       <Box

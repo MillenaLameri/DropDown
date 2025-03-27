@@ -2,7 +2,10 @@ import { Box, Container, IconButton, Toolbar, Typography } from "@mui/material";
 import { useContext, useState } from "react";
 
 import { ThemeContext } from "../../contexts/theme.context";
-
+import TodoIcon from "../../../assents/img/icon-todo.svg";
+import Calendar from "../../../assents/img/icon-calendar.svg";
+import Reminders from "../../../assents/img/icon-reminders.svg";
+import Planing from "../../../assents/img/icon-planning.svg";
 import { DropdownMenu } from "./DropDownMenu";
 import { Hamburguer } from "./Hamburguer";
 import { LogoComponent } from "../LogoComponent";
@@ -11,12 +14,11 @@ import { ThemeToggle } from "../ThemeToggle";
 import { Colors } from "../../../util/colors";
 import MenuIcon from "@mui/icons-material/Menu";
 
-// Menu items
 const featureMenuItems = [
-  { label: "To do List", icon: "", href: "/toDoList" },
-  { label: "Calendar", icon: "", href: "/calendar" },
-  { label: "Reminders", icon: "", href: "/reminders" },
-  { label: "Planning", icon: "", href: "/planning" },
+  { label: "To do List", icon: TodoIcon, href: "/toDoList" },
+  { label: "Calendar", icon: Calendar, href: "/calendar" },
+  { label: "Reminders", icon: Reminders, href: "/reminders" },
+  { label: "Planning", icon: Planing, href: "/planning" },
 ];
 
 const companyMenuItems = [
