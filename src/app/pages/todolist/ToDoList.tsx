@@ -1,10 +1,10 @@
 import { Box, Typography } from "@mui/material";
 
-import Todo from "../../assents/img/bg-desktop-dark.jpg";
+import Todo from "../../../assents/img/bg-desktop-dark.jpg";
 import { useContext } from "react";
-import { ThemeContext } from "../contexts/theme.context";
-import { Colors } from "../../util/colors";
-import { BoxCentralizado } from "../components/BoxCentralizado";
+import { ThemeContext } from "../../contexts/theme.context";
+import { Colors } from "../../../util/colors";
+import { BoxCentralizado } from "../../components/BoxCentralizado";
 
 export const ToDoList = () => {
   const { theme } = useContext(ThemeContext);

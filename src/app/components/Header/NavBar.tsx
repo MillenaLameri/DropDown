@@ -85,7 +85,7 @@ export const NavBar = () => {
           <Typography
             noWrap
             component="a"
-            href="/login"
+            href="/register"
             fontWeight="bold"
             color={theme === "dark" ? Colors.white : Colors.gray3}
             fontSize="0.8rem"

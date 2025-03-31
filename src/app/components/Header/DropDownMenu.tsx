@@ -37,7 +37,7 @@ interface DropdownMenuProps {
 
 export const DropdownMenu: FC<DropdownMenuProps> = ({ label, menuItems }) => {
   const [openDropDown, setOpenDropDown] = useState(false);
-  const { theme } = useContext(ThemeContext);
+  const { theme, setTheme } = useContext(ThemeContext);
   const navigate = useNavigate();
   const anchorRef = useRef<HTMLButtonElement>(null);
 

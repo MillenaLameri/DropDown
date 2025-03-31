@@ -16,5 +16,16 @@
   "planning": "Planejamento",
   "history": "História",
   "our_team": "Nosso Time",
-  "blog": "Blog"
+  "blog": "Blog",
+  "loginWelcome": "Olá",
+  "loginWelcome2": "Acesse sua conta",
+  "signin": "Entrar",
+  "password": "Senha",
+  "confirmPassword": "Confirme sua senha",
+  "forgotPassword": "Esqueceu a senha?",
+  "or": "OU",
+  "socialMedia": "Quero acessar com minhas redes sociais",
+  "new": "Novo no Snap?",
+  "newAccount": "CADASTRE-SE",
+  "registreTitle": "Crie sua conta"
 }

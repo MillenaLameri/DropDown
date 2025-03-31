@@ -16,5 +16,16 @@
   "planning": "Planning",
   "history": "History",
   "our_team": "Our Team",
-  "blog": "Blog"
+  "blog": "Blog",
+  "loginWelcome": "Hello",
+  "loginWelcome2": "Sign in to your account",
+  "signin": "Sign In",
+  "password": "Password",
+  "confirmPassword": "Confirme sua senha",
+  "forgotPassword": "Forgot your password?",
+  "or": "OR",
+  "socialMedia": "Log in with my social media",
+  "new": "New to Snap?",
+  "newAccount": "SIGN UP",
+  "registreTitle": "Create your account or sign in"
 }
