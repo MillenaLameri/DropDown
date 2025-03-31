@@ -26,4 +26,4 @@ The core idea of the project was to create a simple dropdown component, but I us
 
 ## Preliminary Result:
 Here's a preview of the current layout:
-![image](https://i.imgur.com/tYkrkNX.png)
+![image](https://i.imgur.com/aOuEZpC.png)
