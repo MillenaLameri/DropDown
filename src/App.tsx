@@ -6,6 +6,7 @@ import Layout from "./util/layout/Layout";
 import "./App.css";
 import { NavBar } from "./app/components/Header/NavBar";
 import { BrowserRouter } from "react-router-dom";
+import "./i18n";
 
 export const App = () => {
   const isBrowserDefaultDark = () =>

@@ -13,23 +13,26 @@ import { MenuLink } from "../MenuLink";
 import { ThemeToggle } from "../ThemeToggle";
 import { Colors } from "../../../util/colors";
 import MenuIcon from "@mui/icons-material/Menu";
-
-const featureMenuItems = [
-  { label: "To do List", icon: TodoIcon, href: "/toDoList" },
-  { label: "Calendar", icon: Calendar, href: "/calendar" },
-  { label: "Reminders", icon: Reminders, href: "/reminders" },
-  { label: "Planning", icon: Planing, href: "/planning" },
-];
-
-const companyMenuItems = [
-  { label: "History", href: "/history" },
-  { label: "Our Team", href: "/our-team" },
-  { label: "Blog", href: "/blog" },
-];
+import { LanguageSelector } from "./LanguageSelector";
+import { useTranslation } from "react-i18next";
 
 export const NavBar = () => {
+  const { t } = useTranslation();
   const { theme } = useContext(ThemeContext);
   const [open, setOpen] = useState(false);
+
+  const featureMenuItems = [
+    { label: t("to_do_list"), icon: TodoIcon, href: "/toDoList" },
+    { label: t("calendar"), icon: Calendar, href: "/calendar" },
+    { label: t("reminders"), icon: Reminders, href: "/reminders" },
+    { label: t("planning"), icon: Planing, href: "/planning" },
+  ];
+
+  const companyMenuItems = [
+    { label: t("history"), href: "/history" },
+    { label: t("our_team"), href: "/our-team" },
+    { label: t("blog"), href: "/blog" },
+  ];
 
   const closeHambuguer = () => {
     setOpen(false);
@@ -45,18 +48,18 @@ export const NavBar = () => {
 
         <Box display={{ xs: "none", md: "flex" }}>
           <Box ml={2}>
-            <DropdownMenu label="Feature" menuItems={featureMenuItems} />
+            <DropdownMenu label={t("feature")} menuItems={featureMenuItems} />
           </Box>
           <Box ml={2}>
-            <DropdownMenu label="Company" menuItems={companyMenuItems} />
+            <DropdownMenu label={t("company")} menuItems={companyMenuItems} />
           </Box>
 
-          <MenuLink label="Careers" href="/careers" />
-          <MenuLink label="About" href="/about" />
+          <MenuLink label={t("careers")} href="/careers" />
+          <MenuLink label={t("about")} href="/about" />
         </Box>
 
         <Box alignItems="center" justifyContent="center" flexGrow="1"></Box>
-
+        <ThemeToggle />
         <Box ml={2} display={{ xs: "none", md: "flex" }}>
           <Typography
             noWrap
@@ -77,7 +80,7 @@ export const NavBar = () => {
               },
             }}
           >
-            Login
+            {t("login")}
           </Typography>
           <Typography
             noWrap
@@ -101,10 +104,10 @@ export const NavBar = () => {
               },
             }}
           >
-            Register
+            {t("register")}
           </Typography>
         </Box>
-
+        <LanguageSelector />
         <Box>
           <IconButton
             edge="end"
@@ -124,7 +127,6 @@ export const NavBar = () => {
           </IconButton>
         </Box>
         <Hamburguer open={open} close={closeHambuguer} />
-        <ThemeToggle />
       </Toolbar>
     </Container>
   );
