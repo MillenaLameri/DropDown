@@ -27,5 +27,7 @@
   "socialMedia": "Log in with my social media",
   "new": "New to Snap?",
   "newAccount": "SIGN UP",
-  "registreTitle": "Create your account or sign in"
+  "registreTitle": "Create your account",
+  "haveAccount": "Already have an account?",
+  "singIN": " LOG IN"
 }

@@ -52,7 +52,7 @@ export const AuthForm = ({ isRegister = false }: Props) => {
           },
         }}
       >
-        {t("loginWelcome2")}
+        {isRegister ? t("registreTitle") : t("loginWelcome2")}
       </Typography>
       <Typography
         fontWeight="bold"
@@ -162,7 +162,7 @@ export const AuthForm = ({ isRegister = false }: Props) => {
             variant="body2"
             mr={1}
           >
-            {t("new")}
+            {isRegister ? t("haveAccount") : t("new")}
           </Typography>
           <Typography
             fontWeight="bold"
@@ -170,7 +170,7 @@ export const AuthForm = ({ isRegister = false }: Props) => {
             variant="body2"
             sx={{ cursor: "pointer" }}
           >
-            {t("newAccount")}
+            {isRegister ? t("singIN") : t("newAccount")}
           </Typography>
         </Box>
       </Box>
