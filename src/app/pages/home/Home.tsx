@@ -19,19 +19,20 @@ export const Home = () => {
         md={5}
         sx={{
           backgroundImage: `url(${require("../../../assents/img/hero-mobile.png")})`,
-          backgroundSize: "contain",
+          backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
-          height: "40vh",
+          backgroundPosition: "center",
+          height: { xs: "40vh", sm: "60vh" },
           display: { xs: "block", sm: "block", md: "none", xl: "none" },
         }}
       ></Grid>
-      <Grid container height="100vh">
+      <Grid container height={{ md: "100vh", mt: "100vh" }}>
         <Grid
           item
           xs={12}
           sm={12}
           md={7}
-          display="flex"
+          display={{ md: "flex", mt: "flex" }}
           justifyContent="center"
           alignItems="center"
         >

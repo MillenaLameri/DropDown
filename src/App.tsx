@@ -9,7 +9,7 @@ import { BrowserRouter } from "react-router-dom";
 
 export const App = () => {
   const isBrowserDefaultDark = () =>
-    window.matchMedia("(prefers-color-scheme: dark)").matches;
+    window.matchMedia("(prefers-color-scheme: light)").matches;
 
   const getDefaultTheme = (): string => {
     const browserDefault = isBrowserDefaultDark() ? "dark" : "light";

@@ -5,8 +5,13 @@ import Maker from "../../../../assents/img/client-maker.svg";
 import Meet from "../../../../assents/img/client-meet.svg";
 
 export const ClientLogos = () => (
-  <Box mt={16} display="flex" justifyContent="center" alignItems="center">
-    <Box mr={2} mb={{ xs: 2, sm: 0 }}>
+  <Box
+    mt={{ xs: 4, sm: 4, mt: 10, md: 10 }}
+    display="flex"
+    justifyContent="center"
+    alignItems="center"
+  >
+    <Box mr={2}>
       <img
         src={DataBiz}
         alt="DataBiz"
@@ -18,7 +23,7 @@ export const ClientLogos = () => (
         }}
       />
     </Box>
-    <Box mr={2} mb={{ xs: 2, sm: 0 }}>
+    <Box mr={2}>
       <img
         src={AudioPhile}
         alt="AudioPhile"
@@ -30,10 +35,10 @@ export const ClientLogos = () => (
         }}
       />
     </Box>
-    <Box mr={2} mb={{ xs: 2, sm: 0 }}>
+    <Box mr={2}>
       <img
-        src={Maker}
-        alt="Maker"
+        src={Meet}
+        alt="Meet"
         style={{
           width: "auto",
           height: "auto",
@@ -42,10 +47,10 @@ export const ClientLogos = () => (
         }}
       />
     </Box>
-    <Box mr={2} mb={{ xs: 2, sm: 0 }}>
+    <Box mr={2}>
       <img
-        src={Meet}
-        alt="Meet"
+        src={Maker}
+        alt="Maker"
         style={{
           width: "auto",
           height: "auto",
