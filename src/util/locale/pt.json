@@ -29,5 +29,12 @@
   "newAccount": "CADASTRE-SE",
   "registreTitle": "Crie sua conta",
   "haveAccount": "Já possui conta?",
-  "singIN": "ENTRE"
+  "singIN": "ENTRE",
+  "todoTitle": " T O D O",
+  "all": "Todos",
+  "active": "Ativos",
+  "completed": "Completados",
+  "clearCompleted": "Limpar Completos",
+  "itemsLeft": "items restantes",
+  "createTodo": "Criar uma nova tarefa..."
 }

@@ -165,6 +165,9 @@ export const AuthForm = ({ isRegister = false }: Props) => {
             {isRegister ? t("haveAccount") : t("new")}
           </Typography>
           <Typography
+            noWrap
+            component="a"
+            href={isRegister ? "/login" : "/register"}
             fontWeight="bold"
             color={theme === "dark" ? Colors.white : Colors.gray2}
             variant="body2"

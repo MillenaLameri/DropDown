@@ -29,5 +29,12 @@
   "newAccount": "SIGN UP",
   "registreTitle": "Create your account",
   "haveAccount": "Already have an account?",
-  "singIN": " LOG IN"
+  "singIN": " LOG IN",
+  "todoTitle": " T O D O",
+  "all": "All",
+  "active": "Active",
+  "completed": "Completed",
+  "clearCompleted": "Clear Completed",
+  "itemsLeft": "items left",
+  "createTodo": "Create a new todo..."
 }

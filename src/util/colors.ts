@@ -11,6 +11,7 @@ export const Colors = {
   white: "hsl(0, 0%, 98%)",
   white2: "rgb(255, 255, 255)",
   black: "hsl(0, 0%, 8%)",
+  black3: "#25273D",
   black2: "#14141f",
   red: "#f14764",
 
